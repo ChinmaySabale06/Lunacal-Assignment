@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 
 const Gallery = () => {
-  // Use the same placeholder image repeated
   const placeholder = "https://picsum.photos/400/300?random=42";
   const [images, setImages] = useState([
     { src: placeholder },
@@ -12,7 +11,6 @@ const Gallery = () => {
   const scrollerRef = useRef(null);
 
   const addImage = () => {
-    // append the same image
     setImages((prev) => [...prev, { src: placeholder, rot: Math.random() > 0.5 ? 'group-hover:rotate-1' : 'group-hover:-rotate-1' }]);
   };
 
@@ -26,7 +24,7 @@ const Gallery = () => {
     const s = scrollerRef.current;
     if (!s) return;
     const img = s.querySelector("img");
-    const gap = 16; // approx gap
+    const gap = 16;
     const amount = img ? img.offsetWidth + gap : Math.floor(s.clientWidth * 0.6);
     scrollByAmount(amount);
   };

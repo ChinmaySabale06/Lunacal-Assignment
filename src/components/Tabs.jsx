@@ -18,7 +18,6 @@ const Tabs = () => {
       "Dave is highly recommended for his client engagement, attention to detail, and problem-solving mindset.",
   };
   useEffect(() => {
-    // update activeIndex when active label changes
     const idx = tabs.indexOf(active);
     setActiveIndex(idx >= 0 ? idx : 0);
   }, [active]);
@@ -39,7 +38,6 @@ const Tabs = () => {
     return () => window.removeEventListener("resize", update);
   }, [activeIndex]);
 
-  // trigger content animation on active change
   useEffect(() => {
     setContentVisible(false);
     const t = setTimeout(() => setContentVisible(true), 10);
@@ -49,7 +47,6 @@ const Tabs = () => {
   return (
   <div className="bg-gray-800 rounded-2xl p-6 shadow-lg w-full max-w-[720px]">
       <div ref={containerRef} className="relative bg-gray-900 rounded-xl p-3 mb-4 shadow-md">
-        {/* sliding indicator centered vertically behind each tab */}
         <div
           aria-hidden
           className="absolute left-0 top-1/2 h-10 bg-black rounded-lg shadow-lg transition-all duration-400 ease-in-out"
@@ -73,9 +70,7 @@ const Tabs = () => {
           ))}
         </div>
       </div>
-        {/* Keep the content container stable size so switching tabs doesn't resize the component */}
         <div className={`text-gray-300 text-base leading-relaxed min-h-[140px] transition-all duration-500 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          {/* Show full content for About Me (allow wrapping) */}
           <div className="break-words">{content[active]}</div>
         </div>
     </div>
