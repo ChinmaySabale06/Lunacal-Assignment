@@ -7,7 +7,7 @@ const Gallery = () => {
     { src: placeholder },
     { src: placeholder },
   ]);
-
+  
   const scrollerRef = useRef(null);
 
   const addImage = () => {
