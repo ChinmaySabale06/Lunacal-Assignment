@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+body {
+  background-color: #0b1220; /* dark layered background will be created with Tailwind classes on App root */
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* helper to visually hide scrollbars while retaining scroll behavior */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
